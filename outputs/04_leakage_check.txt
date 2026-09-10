@@ -1,0 +1,7 @@
+PASS: no target columns are present in features.
+PASS: no missing NaN values.
+PASS: no infinite values.
+PASS: timestamps are sorted.
+PASS: no duplicate timestamps.
+
+RESULT: DATA LEAKAGE CHECK PASSED

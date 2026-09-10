@@ -1,0 +1,10 @@
+horizon_hours,model,MAE,RMSE,R2
+24,HistGradientBoosting,34.191,52.293,0.1537
+24,Persistence,29.461,45.424,0.3614
+24,RandomForest,33.708,50.61,0.2073
+48,HistGradientBoosting,38.635,57.541,-0.014
+48,Persistence,41.553,58.334,-0.0422
+48,RandomForest,38.178,57.011,0.0046
+72,HistGradientBoosting,41.179,60.222,-0.1008
+72,Persistence,48.441,67.998,-0.4035
+72,RandomForest,42.155,61.331,-0.1417

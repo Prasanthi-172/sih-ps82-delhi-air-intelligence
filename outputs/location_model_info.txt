@@ -1,0 +1,38 @@
+LOCATION-WISE FORECAST MODEL
+==================================================
+
+Number of locations: 6
+Forecast horizon: 72 hours
+Model: Random Forest
+
+Performance:
+
+Anand Vihar
+Rows: 8663
+24h MAE: 33.478
+24h R2: 0.2119
+
+Connaught Place
+Rows: 8663
+24h MAE: 33.847
+24h R2: 0.1948
+
+Dwarka
+Rows: 8663
+24h MAE: 34.377
+24h R2: 0.2294
+
+IGI Airport
+Rows: 8663
+24h MAE: 34.565
+24h R2: 0.2263
+
+Okhla Phase III
+Rows: 8663
+24h MAE: 34.547
+24h R2: 0.2312
+
+Rohini
+Rows: 8663
+24h MAE: 34.701
+24h R2: 0.1335

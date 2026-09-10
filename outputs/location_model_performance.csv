@@ -1,0 +1,7 @@
+location,rows,train_rows,test_rows,mae_24h,r2_24h
+Anand Vihar,8663,6930,1733,33.478,0.2119
+Connaught Place,8663,6930,1733,33.847,0.1948
+Dwarka,8663,6930,1733,34.377,0.2294
+IGI Airport,8663,6930,1733,34.565,0.2263
+Okhla Phase III,8663,6930,1733,34.547,0.2312
+Rohini,8663,6930,1733,34.701,0.1335

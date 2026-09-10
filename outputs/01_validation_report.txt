@@ -1,0 +1,11 @@
+DATA VALIDATION REPORT
+==================================================
+Rows: 8760
+Columns: 50
+Timestamps sorted (oldest->newest): True
+Duplicate timestamps: 0
+Missing hours in the timeline: 0
+Total missing (NaN) values across all columns: 0
+Infinite values found: 0
+==================================================
+RESULT: Dataset passed all validation checks.
