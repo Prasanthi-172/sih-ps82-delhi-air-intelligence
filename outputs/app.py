@@ -26,11 +26,13 @@ st.markdown("""
 <style>
 
 .stApp {
-    background: linear-gradient(135deg, #eef7ff, #f8f9fc);
+    background: linear-gradient(135deg, #e8f2ff 0%, #f0eaff 48%, #ffeaf4 100%);
 }
 
 .block-container {
-    padding-top: 1.5rem;
+    /* Keep all main-page content below Streamlit Cloud header/deploy bar.
+       Sidebar is intentionally untouched. */
+    padding-top: 5rem;
     padding-bottom: 2rem;
 }
 
@@ -50,7 +52,7 @@ st.markdown("""
 }
 
 .card {
-    background: white;
+    background: rgba(235, 243, 255, 0.72);
     padding: 20px;
     border-radius: 18px;
     box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
@@ -66,7 +68,7 @@ st.markdown("""
 }
 
 .explanation-box {
-    background: white;
+    background: rgba(242, 237, 255, 0.72);
     padding: 22px;
     border-radius: 18px;
     box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
@@ -74,7 +76,7 @@ st.markdown("""
 }
 
 .flow-box {
-    background: #f8fafc;
+    background: rgba(231, 244, 255, 0.65);
     border-radius: 12px;
     padding: 15px;
     text-align: center;
@@ -89,11 +91,148 @@ st.markdown("""
 }
 
 .risk-card {
-    background: white;
+    background: rgba(255, 235, 246, 0.68);
     padding: 18px;
     border-radius: 16px;
     box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
     text-align: center;
+}
+
+
+.overview-hero {
+    background: rgba(235, 243, 255, 0.72);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 5px 22px rgba(0,0,0,0.10);
+    margin: 8px 0 24px 0;
+}
+
+.hero-title {
+    font-size: 34px;
+    font-weight: 800;
+    color: #172033;
+    margin: 10px 0 6px 0;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    color: #667085;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+
+
+.page-title-wrap {
+    text-align: center;
+    margin: 0 0 24px 0;
+}
+
+.page-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.15;
+    color: #172033;
+}
+
+.page-title-gradient {
+    display: inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-subtitle {
+    text-align: center;
+    font-size: 17px;
+    color: #667085;
+    margin-top: 8px;
+}
+
+.delhi-banner {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 0 0 24px 0;
+    box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
+}
+
+.weather-card {
+    background: linear-gradient(135deg, rgba(224,243,255,0.88), rgba(238,232,255,0.88));
+    border: 1px solid rgba(8,145,178,0.20);
+    border-radius: 14px;
+    padding: 14px 10px;
+    min-height: 110px;
+    text-align: center;
+    box-shadow: 0px 3px 12px rgba(0,0,0,0.05);
+}
+
+.weather-icon { font-size: 24px; margin-bottom: 5px; }
+.weather-label { font-size: 13px; color: #475467; margin-bottom: 6px; }
+.weather-value { font-size: 18px; font-weight: 700; color: #172033; }
+
+/* Sidebar - match the requested prototype style */
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #17398f 0%, #27217d 52%, #42147b 100%);
+}
+section[data-testid="stSidebar"] > div { padding-top: 1.4rem; }
+section[data-testid="stSidebar"] * { color: #ffffff !important; }
+.sidebar-brand {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.24);
+    border-radius: 17px;
+    padding: 20px 10px 15px 10px;
+    text-align: center;
+    margin: 18px 0 24px 0;
+}
+.sidebar-brand-icon {
+    width: 30px; height: 30px; margin: 0 auto 10px auto;
+    background: rgba(255,255,255,0.95); border-radius: 5px;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.sidebar-brand-title { font-size: 16px; font-weight: 800; margin-bottom: 5px; }
+.sidebar-brand-subtitle { font-size: 10px; opacity: 0.9; }
+.sidebar-heading { font-size: 17px; font-weight: 800; margin: 0 0 13px 0; }
+section[data-testid="stSidebar"] [data-testid="stRadio"] > label {
+    font-size: 13px !important; font-weight: 500 !important;
+}
+section[data-testid="stSidebar"] [data-testid="stRadio"] > div { gap: 7px !important; }
+section[data-testid="stSidebar"] [data-testid="stRadio"] > div > label {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 7px 10px !important; min-height: 34px;
+}
+section[data-testid="stSidebar"] [data-testid="stRadio"] > div > label:hover {
+    background: rgba(255,255,255,0.16);
+}
+section[data-testid="stSidebar"] hr {
+    border-color: rgba(255,255,255,0.18); margin: 36px 0 42px 0;
+}
+.sidebar-detail {
+    background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 13px; padding: 12px; margin: 10px 0;
+}
+.sidebar-detail-label { font-size: 12px; opacity: 0.9; margin-bottom: 7px; }
+.sidebar-detail-value { font-size: 13px; font-weight: 700; }
+
+
+/* Soft Aurora dashboard surfaces — sidebar rules intentionally untouched */
+[data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"] {
+    background: transparent !important;
+}
+
+[data-testid="stHeader"] {
+    background: linear-gradient(90deg, #e8f2ff, #f0eaff, #ffeaf4) !important;
+}
+
+header {
+    background: linear-gradient(90deg, #e8f2ff, #f0eaff, #ffeaf4) !important;
+}
+
+.stPlotlyChart, [data-testid="stDataFrame"], [data-testid="stExpander"] {
+    background: transparent !important;
 }
 
 </style>
@@ -112,6 +251,8 @@ MAIN_DATA_FILE = "data/delhincr.csv"
 METRICS_FILE = "outputs/05_metrics_by_horizon.csv"
 SUMMARY_FILE = "outputs/05_summary_24_48_72.csv"
 IMPORTANCE_FILE = "outputs/07_feature_importance.csv"
+DELHI_IMAGE_FILE = "assets/delhi_gate.png"
+DELHI_BANNER_FILE = "outputs/assets/delhi_banner.png"
 
 
 # ============================================================
@@ -269,61 +410,19 @@ if os.path.exists(IMPORTANCE_FILE):
 
 
 # ============================================================
-# HEADER
-# ============================================================
-
-st.markdown(
-    '<div class="main-title">🌫️ Delhi Air Intelligence</div>',
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    '<div class="sub-title">'
-    'AI-Powered Air Pollution Monitoring & 72-Hour Forecasting System'
-    '</div>',
-    unsafe_allow_html=True
-)
-
-
-# ============================================================
-# FORECAST START
-# ============================================================
-
-if "timestamp" in forecast.columns and len(forecast) > 0:
-
-    latest_time = forecast["timestamp"].min()
-
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-
-        st.info(
-            "📅 Forecast Start\n\n"
-            + latest_time.strftime("%d %B %Y")
-        )
-
-    with col2:
-
-        st.info(
-            "🕐 Forecast Time\n\n"
-            + latest_time.strftime("%I:%M %p")
-        )
-
-    with col3:
-
-        st.info(
-            "📍 Region\n\nDelhi NCR"
-        )
-
-
-# ============================================================
 # SIDEBAR
 # ============================================================
 
-st.sidebar.title("🌫️ Delhi Air Intelligence")
-
 st.sidebar.markdown(
-    "### Dashboard Controls"
+    """
+    <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">🌫️</div>
+        <div class="sidebar-brand-title">Delhi Air Intelligence</div>
+        <div class="sidebar-brand-subtitle">Air Pollution Monitoring &amp; 72-Hour Forecasting</div>
+    </div>
+    <div class="sidebar-heading">Dashboard Navigation</div>
+    """,
+    unsafe_allow_html=True
 )
 
 page = st.sidebar.radio(
@@ -334,14 +433,85 @@ page = st.sidebar.radio(
         "📈 72-Hour Forecast",
         "🔎 Why Is AQI High?",
         "📊 Location Analysis",
+        "🚀 Smart Insights",
         "🤖 Model Information"
     ]
 )
+
+forecast_start = (
+    pd.to_datetime(forecast.iloc[0]["timestamp"], errors="coerce")
+    if "timestamp" in forecast.columns and len(forecast) else pd.NaT
+)
+forecast_date_text = forecast_start.strftime("%d %B %Y") if pd.notna(forecast_start) else "N/A"
+forecast_time_text = forecast_start.strftime("%I:%M %p").lstrip("0") if pd.notna(forecast_start) else "N/A"
+
+st.sidebar.markdown("<hr>", unsafe_allow_html=True)
+st.sidebar.markdown('<div class="sidebar-heading">Forecast Details</div>', unsafe_allow_html=True)
+st.sidebar.markdown(
+    f"""
+    <div class="sidebar-detail">
+        <div class="sidebar-detail-label">📅 Forecast Start</div>
+        <div class="sidebar-detail-value">{forecast_date_text}</div>
+    </div>
+    <div class="sidebar-detail">
+        <div class="sidebar-detail-label">🕐 Forecast Time</div>
+        <div class="sidebar-detail-value">{forecast_time_text}</div>
+    </div>
+    <div class="sidebar-detail">
+        <div class="sidebar-detail-label">📍 Region</div>
+        <div class="sidebar-detail-value">Delhi NCR</div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# PLOTLY CHART THEME
+# ============================================================
+
+def style_chart(fig, accent, bg="#f8f7ff"):
+    fig.update_layout(
+        paper_bgcolor="rgba(255,255,255,0)",
+        plot_bgcolor="rgba(255,255,255,0.12)",
+        font=dict(color="#172033"),
+        title_font=dict(color=accent),
+        xaxis=dict(gridcolor="rgba(100,116,139,0.14)", zerolinecolor="rgba(100,116,139,0.18)"),
+        yaxis=dict(gridcolor="rgba(100,116,139,0.14)", zerolinecolor="rgba(100,116,139,0.18)"),
+        margin=dict(l=55, r=25, t=65, b=55),
+    )
+    return fig
+
+
+# PAGE HEADER
+# ============================================================
+
+page_gradients = {
+    "🏠 Overview": "linear-gradient(90deg, #7c3aed, #ec4899)",
+    "🗺️ Delhi AQI Map": "linear-gradient(90deg, #2563eb, #06b6d4)",
+    "📈 72-Hour Forecast": "linear-gradient(90deg, #059669, #14b8a6)",
+    "🔎 Why Is AQI High?": "linear-gradient(90deg, #ea580c, #f59e0b)",
+    "📊 Location Analysis": "linear-gradient(90deg, #db2777, #8b5cf6)",
+    "🚀 Smart Insights": "linear-gradient(90deg, #f97316, #ec4899)",
+    "🤖 Model Information": "linear-gradient(90deg, #4f46e5, #7c3aed)"
+}
+
+gradient = page_gradients.get(page, "linear-gradient(90deg, #2563eb, #7c3aed)")
+
+# Overview uses the Delhi banner instead of the generic page title.
+if page != "🏠 Overview":
+    st.markdown(
+        f'<div class="page-title-wrap">'
+        f'<div class="page-title"><span class="page-title-gradient" style="background-image:{gradient};">🌫️ Delhi Air Intelligence</span></div>'
+        f'<div class="page-subtitle">AI-Powered Air Pollution Monitoring &amp; 72-Hour Forecasting System</div>'
+        f'</div>',
+        unsafe_allow_html=True
+    )
 
 
 # ============================================================
 # AQI CATEGORY
 # ============================================================
+
 
 def get_aqi_category(aqi):
 
@@ -489,6 +659,17 @@ location_summary = create_location_summary()
 
 if page == "🏠 Overview":
 
+    # --------------------------------------------------------
+    # DELHI BANNER
+    # --------------------------------------------------------
+    if os.path.exists(DELHI_BANNER_FILE):
+        st.markdown('<div class="delhi-banner">', unsafe_allow_html=True)
+        st.image(DELHI_BANNER_FILE, use_container_width=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    # --------------------------------------------------------
+    # CURRENT AIR QUALITY
+    # --------------------------------------------------------
     st.markdown(
         '<div class="section-title">🌤️ Current Air Quality</div>',
         unsafe_allow_html=True
@@ -496,87 +677,84 @@ if page == "🏠 Overview":
 
     current = forecast.iloc[0]
 
-    pm25 = float(
-        current["predicted_pm25"]
-    )
-
-    aqi = float(
-        current["predicted_aqi"]
-    )
-
-    category = current.get(
-        "aqi_category",
-        get_aqi_category(aqi)
-    )
-
+    pm25 = float(current["predicted_pm25"])
+    aqi = float(current["predicted_aqi"])
+    category = current.get("aqi_category", get_aqi_category(aqi))
 
     c1, c2, c3, c4 = st.columns(4)
 
     with c1:
-
-        st.metric(
-            "🌫️ PM2.5",
-            f"{pm25:.1f} µg/m³"
-        )
-
+        st.metric("🌫️ PM2.5", f"{pm25:.1f} µg/m³")
     with c2:
-
-        st.metric(
-            "📊 Predicted AQI",
-            f"{aqi:.0f}"
-        )
-
+        st.metric("📊 Predicted AQI", f"{aqi:.0f}")
     with c3:
-
-        st.metric(
-            "⚠️ Category",
-            category
-        )
-
+        st.metric("⚠️ Category", category)
     with c4:
-
-        st.metric(
-            "⏱️ Forecast",
-            "72 Hours"
-        )
-
+        st.metric("⏱️ Forecast", "72 Hours")
 
     if aqi <= 50:
-
-        st.success(
-            "🟢 Air quality is GOOD."
-        )
-
+        st.success("🟢 Air quality is GOOD.")
     elif aqi <= 100:
-
-        st.info(
-            "🟡 Air quality is SATISFACTORY."
-        )
-
+        st.info("🟡 Air quality is SATISFACTORY.")
     elif aqi <= 200:
-
-        st.warning(
-            "🟠 Air quality is MODERATE."
-        )
-
+        st.warning("🟠 Air quality is MODERATE.")
     elif aqi <= 300:
-
-        st.warning(
-            "🔴 Air quality is POOR."
-        )
-
+        st.warning("🔴 Air quality is POOR.")
     elif aqi <= 400:
-
-        st.error(
-            "🟣 Air quality is VERY POOR."
-        )
-
+        st.error("🟣 Air quality is VERY POOR.")
     else:
+        st.error("⚫ Air quality is SEVERE.")
 
-        st.error(
-            "⚫ Air quality is SEVERE."
-        )
+    # --------------------------------------------------------
+    # WEATHER CONDITIONS
+    # --------------------------------------------------------
+    st.markdown(
+        '<div class="section-title">🌤️ Weather Conditions <span style="font-size:14px;font-weight:400;color:#667085;">(Delhi NCR)</span></div>',
+        unsafe_allow_html=True
+    )
 
+    # Use the first available row from the historical data at/near the forecast start.
+    weather_row = None
+    if main_data is not None and len(main_data) > 0:
+        weather_row = main_data.iloc[-1]
+        if "timestamp" in main_data.columns and "timestamp" in forecast.columns and len(forecast) > 0:
+            target_time = pd.to_datetime(forecast.iloc[0]["timestamp"], errors="coerce")
+            if pd.notna(target_time):
+                idx = (main_data["timestamp"] - target_time).abs().idxmin()
+                weather_row = main_data.loc[idx]
+
+    def weather_value(row, candidates, suffix="", decimals=1):
+        if row is None:
+            return "N/A"
+        for col in candidates:
+            if col in row.index and pd.notna(row[col]):
+                try:
+                    value = float(row[col])
+                    return f"{value:.{decimals}f}{suffix}"
+                except Exception:
+                    return f"{row[col]}{suffix}"
+        return "N/A"
+
+    weather_items = [
+        ("🌡️", "Temperature", weather_value(weather_row, ["temperature_2m_c", "temp_c", "temperature_c"], " °C")),
+        ("💧", "Humidity", weather_value(weather_row, ["relative_humidity_2m_pct", "relative_humidity", "humidity", "humidity_pct"], "%")),
+        ("💨", "Wind Speed", weather_value(weather_row, ["wind_speed_10m_kmh", "windspeed_kph", "wind_speed_kmh"], " km/h")),
+        ("🧭", "Pressure", weather_value(weather_row, ["pressure_msl_hpa", "pressure_mb", "pressure_hpa"], " hPa")),
+        ("🌧️", "Precipitation", weather_value(weather_row, ["precipitation_mm", "precip_mm", "rain_mm"], " mm")),
+        ("☁️", "Cloud Cover", weather_value(weather_row, ["cloud_cover_pct", "cloud_cover", "cloudcover"], "%")),
+    ]
+
+    weather_cols = st.columns(6)
+    for col, (icon, label, value) in zip(weather_cols, weather_items):
+        with col:
+            weather_html = (
+                '<div class="weather-card">'
+                f'<div class="weather-icon">{icon}</div>'
+                f'<div class="weather-label">{label}</div>'
+                f'<div class="weather-value">{value}</div>'
+                '</div>'
+            )
+            st.markdown(weather_html, unsafe_allow_html=True)
 
     # --------------------------------------------------------
     # MAIN FORECAST
@@ -592,7 +770,8 @@ if page == "🏠 Overview":
         x="timestamp",
         y="predicted_pm25",
         markers=True,
-        title="Predicted PM2.5"
+        title="Predicted PM2.5",
+        color_discrete_sequence=["#ec4899"]
     )
 
     fig.update_layout(
@@ -600,6 +779,7 @@ if page == "🏠 Overview":
         yaxis_title="PM2.5 (µg/m³)",
         hovermode="x unified"
     )
+    style_chart(fig, "#ec4899", "#fff7fc")
 
     st.plotly_chart(
         fig,
@@ -962,12 +1142,14 @@ elif page == "📈 72-Hour Forecast":
         x="timestamp",
         y="predicted_pm25",
         markers=True,
-        title="🌫️ Predicted PM2.5"
+        title="🌫️ Predicted PM2.5",
+        color_discrete_sequence=["#e11d8f"]
     )
 
     fig1.update_layout(
         hovermode="x unified"
     )
+    style_chart(fig1, "#e11d8f", "#fff7fc")
 
     st.plotly_chart(
         fig1,
@@ -984,12 +1166,14 @@ elif page == "📈 72-Hour Forecast":
         x="timestamp",
         y="predicted_aqi",
         markers=True,
-        title="📊 Predicted AQI"
+        title="📊 Predicted AQI",
+        color_discrete_sequence=["#7c3aed"]
     )
 
     fig2.update_layout(
         hovermode="x unified"
     )
+    style_chart(fig2, "#7c3aed", "#f8f5ff")
 
     st.plotly_chart(
         fig2,
@@ -1019,8 +1203,11 @@ elif page == "📈 72-Hour Forecast":
         category_count,
         x="Category",
         y="Hours",
-        title="Number of Forecast Hours in Each AQI Category"
+        title="Number of Forecast Hours in Each AQI Category",
+        color_discrete_sequence=["#f59e0b"]
     )
+
+    style_chart(fig3, "#f59e0b", "#fffaf0")
 
     st.plotly_chart(
         fig3,
@@ -1583,7 +1770,8 @@ elif page == "📊 Location Analysis":
             "📊 "
             + selected_location
             + " - Predicted AQI"
-        )
+        ),
+        color_discrete_sequence=["#2563eb"]
     )
 
     fig_aqi.update_layout(
@@ -1591,6 +1779,7 @@ elif page == "📊 Location Analysis":
         yaxis_title="Predicted AQI",
         hovermode="x unified"
     )
+    style_chart(fig_aqi, "#2563eb", "#f4f8ff")
 
     st.plotly_chart(
         fig_aqi,
@@ -1611,7 +1800,8 @@ elif page == "📊 Location Analysis":
             "🌫️ "
             + selected_location
             + " - Predicted PM2.5"
-        )
+        ),
+        color_discrete_sequence=["#ec4899"]
     )
 
     fig_pm.update_layout(
@@ -1619,6 +1809,7 @@ elif page == "📊 Location Analysis":
         yaxis_title="PM2.5 (µg/m³)",
         hovermode="x unified"
     )
+    style_chart(fig_pm, "#ec4899", "#fff7fc")
 
     st.plotly_chart(
         fig_pm,
@@ -1652,6 +1843,150 @@ elif page == "📊 Location Analysis":
         use_container_width=True,
         hide_index=True
     )
+
+
+# ============================================================
+# SMART INSIGHTS
+# ============================================================
+
+elif page == "🚀 Smart Insights":
+
+    st.markdown(
+        '<div class="section-title">🚀 Smart Insights</div>',
+        unsafe_allow_html=True
+    )
+
+    if main_data is None or len(main_data) == 0:
+        st.warning("Main historical dataset was not found.")
+    else:
+        valid_data = main_data.dropna(subset=["timestamp"]).copy() if "timestamp" in main_data.columns else main_data.copy()
+
+        if len(valid_data) == 0:
+            st.warning("No valid historical records were found.")
+        else:
+            latest = valid_data.iloc[-1]
+            previous = valid_data.iloc[-2] if len(valid_data) > 1 else None
+
+            def insight_value(row, candidates):
+                if row is None:
+                    return np.nan
+                for col in candidates:
+                    if col in row.index and pd.notna(row[col]):
+                        try:
+                            return float(row[col])
+                        except Exception:
+                            pass
+                return np.nan
+
+            pm25_now = insight_value(latest, ["pm2_5_ugm3", "pm25", "predicted_pm25"])
+            pm25_prev = insight_value(previous, ["pm2_5_ugm3", "pm25", "predicted_pm25"])
+            aqi_now = float(forecast.iloc[0]["predicted_aqi"]) if "predicted_aqi" in forecast.columns and len(forecast) else np.nan
+            wind = insight_value(latest, ["wind_speed_10m_kmh", "windspeed_kph", "wind_speed_kmh"])
+            humidity = insight_value(latest, ["relative_humidity", "relative_humidity_2m_pct", "humidity", "humidity_pct"])
+            boundary = insight_value(latest, ["boundary_layer_height_m"])
+            inversion = insight_value(latest, ["inversion_strength_c"])
+            fire = insight_value(latest, ["upwind_stubble_fire_count"])
+
+            # Health Advisory
+            st.markdown("### 🩺 Health Advisory")
+            if not np.isnan(aqi_now):
+                category = get_aqi_category(aqi_now)
+                if aqi_now <= 100:
+                    advisory = "Air quality is relatively acceptable. Normal outdoor activities can continue while monitoring conditions."
+                elif aqi_now <= 200:
+                    advisory = "Sensitive people should reduce prolonged outdoor activity and monitor symptoms."
+                elif aqi_now <= 300:
+                    advisory = "Reduce prolonged outdoor activity. Sensitive groups should stay indoors when possible and consider a mask outdoors."
+                elif aqi_now <= 400:
+                    advisory = "Avoid prolonged outdoor activity. Sensitive groups should remain indoors and use suitable respiratory protection when going outside."
+                else:
+                    advisory = "Severe pollution conditions. Avoid outdoor exposure and follow public-health guidance."
+                st.info(f"**AQI: {aqi_now:.0f} — {category}**\n\n{advisory}")
+            else:
+                st.info("AQI information is not available for the current forecast.")
+
+            # Trend
+            st.markdown("### 📉 Trend vs Previous Reading")
+            if not np.isnan(pm25_now) and not np.isnan(pm25_prev):
+                change = pm25_now - pm25_prev
+                pct = (change / pm25_prev * 100) if pm25_prev != 0 else np.nan
+                c1, c2, c3 = st.columns(3)
+                with c1:
+                    st.metric("Latest PM2.5", f"{pm25_now:.1f} µg/m³")
+                with c2:
+                    st.metric("Previous PM2.5", f"{pm25_prev:.1f} µg/m³")
+                with c3:
+                    st.metric("Change", f"{change:+.1f} µg/m³", f"{pct:+.1f}%" if not np.isnan(pct) else None)
+            else:
+                st.info("Previous PM2.5 reading is not available.")
+
+            # Contributing factors
+            st.markdown("### 🧪 Likely Contributing Factors")
+            factors = []
+            if not np.isnan(wind):
+                factors.append(("Low wind / dispersion", max(0, 100 - wind * 8) if wind < 12 else 10))
+            if not np.isnan(boundary):
+                factors.append(("Low boundary layer", max(0, 100 - boundary / 8) if boundary < 800 else 10))
+            if not np.isnan(inversion):
+                factors.append(("Atmospheric inversion", min(100, max(0, inversion * 25))))
+            if not np.isnan(fire):
+                factors.append(("Upwind stubble-fire activity", min(100, fire * 20)))
+            if not np.isnan(humidity):
+                factors.append(("High humidity", min(100, max(0, humidity - 60) * 2.5)))
+
+            if factors:
+                factor_df = pd.DataFrame(factors, columns=["Factor", "Relative Indicator"]).sort_values("Relative Indicator", ascending=False)
+                fig_factors = px.bar(
+                    factor_df,
+                    x="Relative Indicator",
+                    y="Factor",
+                    orientation="h",
+                    title="Current Conditions Affecting Air Quality",
+                    color_discrete_sequence=["#f97316"]
+                )
+                style_chart(fig_factors, "#f97316", "#fff7ed")
+                st.plotly_chart(fig_factors, use_container_width=True)
+                st.caption("These are condition-based indicators, not causal percentages.")
+            else:
+                st.info("Not enough weather/fire variables are available to estimate contributing factors.")
+
+            # Public report — detailed version
+            st.markdown("### 📄 Generate Health Report")
+
+            report_time = None
+            if "timestamp" in latest.index and pd.notna(latest["timestamp"]):
+                try:
+                    report_time = pd.to_datetime(latest["timestamp"])
+                except Exception:
+                    report_time = None
+
+            report_lines = [
+                "=" * 70,
+                "DELHI AIR INTELLIGENCE — PUBLIC HEALTH ADVISORY",
+                "=" * 70,
+                "",
+                f"Report Date: {report_time.strftime('%d-%m-%Y')}" if report_time is not None else "Report Date: N/A",
+                f"Report Time: {report_time.strftime('%I:%M %p')}" if report_time is not None else "Report Time: N/A",
+                "",
+                f"Forecast AQI: {aqi_now:.0f}" if not np.isnan(aqi_now) else "Forecast AQI: N/A",
+                f"AQI Category: {get_aqi_category(aqi_now)}" if not np.isnan(aqi_now) else "AQI Category: N/A",
+                f"Latest PM2.5: {pm25_now:.1f} µg/m³" if not np.isnan(pm25_now) else "Latest PM2.5: N/A",
+                f"Previous PM2.5: {pm25_prev:.1f} µg/m³" if not np.isnan(pm25_prev) else "Previous PM2.5: N/A",
+                "",
+                "HEALTH ADVISORY",
+                "-" * 70,
+                advisory if not np.isnan(aqi_now) else "Health advisory unavailable.",
+                "",
+                "Generated by Delhi Air Intelligence.",
+                "This report is an automated public advisory based on available dashboard data."
+            ]
+            report_text = "\n".join(report_lines)
+            st.download_button(
+                "⬇️ Download Advisory Bulletin (.txt)",
+                report_text,
+                file_name="delhi_air_health_advisory.txt",
+                mime="text/plain"
+            )
 
 
 # ============================================================
@@ -1854,8 +2189,11 @@ elif page == "🤖 Model Information":
                 x=importance_column,
                 y=feature_column,
                 orientation="h",
-                title="Top 15 Important Features"
+                title="Top 15 Important Features",
+                color_discrete_sequence=["#14b8a6"]
             )
+
+            style_chart(fig_imp, "#14b8a6", "#f2fffc")
 
             st.plotly_chart(
                 fig_imp,
