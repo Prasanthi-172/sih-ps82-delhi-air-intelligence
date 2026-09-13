@@ -25,13 +25,24 @@ st.set_page_config(
 st.markdown("""
 <style>
 
+/* ============================================================
+   RELIABLE HIGH-CONTRAST DASHBOARD THEME
+   Keeps the existing dashboard layout and logic unchanged.
+   ============================================================ */
+
 .stApp {
-    background: linear-gradient(135deg, #e8f2ff 0%, #f0eaff 48%, #ffeaf4 100%);
+    background: linear-gradient(135deg, #eef5ff 0%, #f4efff 50%, #fff1f7 100%) !important;
+    color: #172033 !important;
+}
+
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+[data-testid="stMainBlockContainer"] {
+    background: transparent !important;
+    color: #172033 !important;
 }
 
 .block-container {
-    /* Keep all main-page content below Streamlit Cloud header/deploy bar.
-       Sidebar is intentionally untouched. */
     padding-top: 5rem;
     padding-bottom: 2rem;
 }
@@ -40,43 +51,48 @@ st.markdown("""
     font-size: 42px;
     font-weight: 800;
     text-align: center;
-    color: #172033;
+    color: #172033 !important;
     margin-bottom: 5px;
 }
 
 .sub-title {
     text-align: center;
     font-size: 17px;
-    color: #667085;
+    color: #475467 !important;
     margin-bottom: 25px;
 }
 
+.card,
+.explanation-box,
+.flow-box,
+.risk-card,
+.overview-hero {
+    background: #ffffff !important;
+    color: #172033 !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
 .card {
-    background: rgba(235, 243, 255, 0.72);
     padding: 20px;
     border-radius: 18px;
-    box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
     margin-bottom: 18px;
 }
 
 .section-title {
     font-size: 25px;
     font-weight: 700;
-    color: #172033;
+    color: #172033 !important;
     margin-top: 20px;
     margin-bottom: 15px;
 }
 
 .explanation-box {
-    background: rgba(242, 237, 255, 0.72);
     padding: 22px;
     border-radius: 18px;
-    box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
     margin-top: 15px;
 }
 
 .flow-box {
-    background: rgba(231, 244, 255, 0.65);
     border-radius: 12px;
     padding: 15px;
     text-align: center;
@@ -88,40 +104,34 @@ st.markdown("""
     text-align: center;
     font-size: 25px;
     font-weight: bold;
+    color: #344054 !important;
 }
 
 .risk-card {
-    background: rgba(255, 235, 246, 0.68);
     padding: 18px;
     border-radius: 16px;
-    box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
     text-align: center;
 }
 
-
 .overview-hero {
-    background: rgba(235, 243, 255, 0.72);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0px 5px 22px rgba(0,0,0,0.10);
     margin: 8px 0 24px 0;
 }
 
 .hero-title {
     font-size: 34px;
     font-weight: 800;
-    color: #172033;
+    color: #172033 !important;
     margin: 10px 0 6px 0;
 }
 
 .hero-subtitle {
     font-size: 16px;
-    color: #667085;
+    color: #475467 !important;
     line-height: 1.5;
     margin-bottom: 8px;
 }
-
-
 
 .page-title-wrap {
     text-align: center;
@@ -133,21 +143,41 @@ st.markdown("""
     font-weight: 800;
     margin: 0;
     line-height: 1.15;
-    color: #172033;
+    color: #172033 !important;
 }
 
+/* Filled cloud icon beside the page title */
+.page-title-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-right: 9px;
+    border-radius: 12px;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    font-size: 29px;
+    font-weight: 700;
+    vertical-align: middle;
+    line-height: 1;
+    box-shadow: 0 4px 10px rgba(37,99,235,0.25);
+}
+
+/* Do not use transparent gradient text on Streamlit Cloud/mobile. */
 .page-title-gradient {
     display: inline-block;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
+    color: #172033 !important;
+    -webkit-text-fill-color: #172033 !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
 }
 
 .page-subtitle {
     text-align: center;
     font-size: 17px;
-    color: #667085;
+    color: #475467 !important;
     margin-top: 8px;
 }
 
@@ -156,24 +186,26 @@ st.markdown("""
     border-radius: 16px;
     overflow: hidden;
     margin: 0 0 24px 0;
-    box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
 }
 
 .weather-card {
-    background: linear-gradient(135deg, rgba(224,243,255,0.88), rgba(238,232,255,0.88));
-    border: 1px solid rgba(8,145,178,0.20);
+    background: #ffffff !important;
+    border: 1px solid #d0d5dd;
     border-radius: 14px;
     padding: 14px 10px;
     min-height: 110px;
     text-align: center;
-    box-shadow: 0px 3px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
 }
 
 .weather-icon { font-size: 24px; margin-bottom: 5px; }
-.weather-label { font-size: 13px; color: #475467; margin-bottom: 6px; }
-.weather-value { font-size: 18px; font-weight: 700; color: #172033; }
+.weather-label { font-size: 13px; color: #475467 !important; margin-bottom: 6px; }
+.weather-value { font-size: 18px; font-weight: 700; color: #172033 !important; }
 
-/* Sidebar - match the requested prototype style */
+/* ============================================================
+   SIDEBAR - ORIGINAL DESIGN PRESERVED
+   ============================================================ */
 section[data-testid="stSidebar"] {
     background: linear-gradient(180deg, #17398f 0%, #27217d 52%, #42147b 100%);
 }
@@ -217,22 +249,184 @@ section[data-testid="stSidebar"] hr {
 .sidebar-detail-label { font-size: 12px; opacity: 0.9; margin-bottom: 7px; }
 .sidebar-detail-value { font-size: 13px; font-weight: 700; }
 
+/* ============================================================
+   STREAMLIT NATIVE ELEMENTS - HIGH CONTRAST
+   ============================================================ */
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] span,
+[data-testid="stMarkdownContainer"] div {
+    color: #172033;
+}
 
-/* Soft Aurora dashboard surfaces — sidebar rules intentionally untouched */
-[data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"] {
+[data-testid="stMetricLabel"] {
+    color: #475467 !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: #172033 !important;
+    font-weight: 800 !important;
+}
+
+[data-testid="stMetricDelta"] {
+    color: #344054 !important;
+}
+
+[data-testid="stAlert"] {
+    color: #172033 !important;
+}
+
+[data-testid="stNotification"] {
+    color: #172033 !important;
+}
+
+[data-baseweb="select"] > div {
+    background: #ffffff !important;
+    color: #172033 !important;
+    border-color: #98a2b3 !important;
+}
+
+[data-baseweb="select"] * {
+    color: #172033 !important;
+}
+
+[data-testid="stDataFrame"] {
+    background: #ffffff !important;
+}
+
+.stPlotlyChart,
+[data-testid="stExpander"] {
     background: transparent !important;
 }
 
-[data-testid="stHeader"] {
-    background: linear-gradient(90deg, #e8f2ff, #f0eaff, #ffeaf4) !important;
-}
-
+[data-testid="stHeader"],
 header {
     background: linear-gradient(90deg, #e8f2ff, #f0eaff, #ffeaf4) !important;
 }
 
-.stPlotlyChart, [data-testid="stDataFrame"], [data-testid="stExpander"] {
-    background: transparent !important;
+/* Mobile / narrow screens */
+@media (max-width: 768px) {
+    .block-container {
+        padding-top: 4rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .page-title {
+        font-size: 30px;
+    }
+    .page-title-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 24px;
+        margin-right: 6px;
+    }
+    .page-subtitle {
+        font-size: 14px;
+    }
+    .main-title {
+        font-size: 30px;
+    }
+    .section-title {
+        font-size: 21px;
+    }
+}
+
+
+/* ============================================================
+   WHY IS AQI HIGH - REFERENCE SLIDE UI
+   ============================================================ */
+.why-hero {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #ffffff;
+    border: 1px solid #dbe5f4;
+    border-radius: 18px;
+    padding: 18px 22px;
+    margin: 0 0 18px 0;
+    box-shadow: 0 4px 16px rgba(16,24,40,0.06);
+}
+.why-hero-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: #2563eb;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex: 0 0 56px;
+}
+.why-hero-title { font-size: 31px; font-weight: 800; color: #13265b; line-height: 1.15; }
+.why-hero-subtitle { font-size: 15px; color: #52678f; margin-top: 5px; }
+.why-section-heading { font-size: 25px; font-weight: 800; color: #13265b; margin: 4px 0 12px 0; }
+.factor-card {
+    width: 100%;
+    min-height: 126px;
+    box-sizing: border-box;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 16px;
+    margin: 0 0 12px 0;
+    background: #ffffff;
+    border: 1px solid #dbe5f4;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(16,24,40,0.045);
+}
+.factor-icon {
+    width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 23px; font-weight: 700; background: #eef4ff; color: #2563eb;
+}
+.factor-pm { border-color: #f4ccd8; background: #fffafb; }
+.factor-pm .factor-icon { background: #ffe2e8; color: #e11d48; }
+.factor-trend { background: #fffafd; }
+.factor-trend .factor-icon { background: #ffe3ea; color: #e11d48; }
+.factor-wind .factor-icon { background: #dff0ff; color: #1670d2; }
+.factor-pbl .factor-icon { background: #eee6ff; color: #6d3dcc; }
+.factor-humidity .factor-icon { background: #ddf7fa; color: #0795a5; }
+.factor-inversion .factor-icon { background: #fff0dc; color: #e46a11; }
+.factor-fire .factor-icon { background: #dff6eb; color: #16834f; }
+.factor-content { flex: 1; min-width: 0; }
+.factor-title { color: #16295d; font-size: 15px; font-weight: 800; margin-bottom: 5px; }
+.factor-value-row { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.factor-value { color: #13265b; font-size: 22px; font-weight: 800; }
+.factor-badge { background: #eaf1ff; color: #2563eb; border-radius: 999px; padding: 4px 9px; font-size: 12px; font-weight: 700; }
+.factor-pm .factor-badge, .factor-trend .factor-badge { background: #ffe1e7; color: #d91f45; }
+.factor-inversion .factor-badge { background: #ffe9d7; color: #e55b0a; }
+.factor-fire .factor-badge { background: #d9f2e5; color: #087647; }
+.factor-note { color: #4b628d; font-size: 13px; line-height: 1.42; margin-top: 5px; }
+.assessment-card {
+    background: #ffffff;
+    border: 1px solid #dbe5f4;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 4px 16px rgba(16,24,40,0.05);
+    min-height: 730px;
+}
+.assessment-title { color: #13265b; font-size: 21px; font-weight: 800; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.assessment-icon { width: 38px; height: 38px; border-radius: 10px; background: #2d78e8; color: #fff; display: inline-flex; align-items: center; justify-content: center; }
+.assessment-text { color: #344d7a; font-size: 16px; line-height: 1.75; }
+.short-box { background: #fff4e5; border: 1px solid #ffd9aa; border-radius: 14px; padding: 17px; margin-top: 24px; }
+.short-title { color: #3f3f46; font-size: 18px; font-weight: 800; margin-bottom: 9px; }
+.short-text { color: #1554b0; font-size: 15px; font-weight: 700; line-height: 1.55; }
+.important-box { background: #edf6ff; border: 1px solid #cfe4ff; border-radius: 14px; padding: 17px; margin-top: 16px; }
+.important-title { color: #154ca3; font-size: 16px; font-weight: 800; margin-bottom: 7px; }
+.important-text { color: #365b8f; font-size: 13px; line-height: 1.55; }
+.conclusion-box { background: #f8fbff; border: 1px solid #d4e5fb; border-radius: 15px; padding: 18px 20px; margin-top: 18px; }
+.conclusion-title { color: #13265b; font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+.conclusion-text { color: #38547f; font-size: 14px; line-height: 1.6; }
+@media (min-width: 769px) {
+    .factor-card { width: calc(50% - 6px); display: inline-flex; vertical-align: top; margin-right: 8px; }
+    .factor-card:nth-of-type(even) { margin-right: 0; }
+}
+@media (max-width: 768px) {
+    .why-hero-title { font-size: 25px; }
+    .why-hero-subtitle { font-size: 13px; }
+    .why-section-heading { font-size: 21px; }
+    .assessment-card { min-height: auto; margin-top: 8px; }
 }
 
 </style>
@@ -501,7 +695,7 @@ gradient = page_gradients.get(page, "linear-gradient(90deg, #2563eb, #7c3aed)")
 if page != "🏠 Overview":
     st.markdown(
         f'<div class="page-title-wrap">'
-        f'<div class="page-title"><span class="page-title-gradient" style="background-image:{gradient};">🌫️ Delhi Air Intelligence</span></div>'
+        f'<div class="page-title"><span class="page-title-icon">☁</span> <span class="page-title-gradient" style="background-image:{gradient};">Delhi Air Intelligence</span></div>'
         f'<div class="page-subtitle">AI-Powered Air Pollution Monitoring &amp; 72-Hour Forecasting System</div>'
         f'</div>',
         unsafe_allow_html=True
@@ -1263,320 +1457,218 @@ elif page == "📈 72-Hour Forecast":
 
 elif page == "🔎 Why Is AQI High?":
 
-    st.markdown(
-        '<div class="section-title">'
-        '🔎 Why Is AQI High?'
-        '</div>',
-        unsafe_allow_html=True
-    )
-
-
+    # ------------------------------------------------------------
+    # GET LATEST OBSERVATION
+    # ------------------------------------------------------------
     if main_data is None:
-
-        st.warning(
-            "Main historical dataset was not found."
-        )
-
-        st.info(
-            "The explanation section requires data/delhincr.csv."
-        )
-
+        st.error("❌ Main historical dataset was not found.")
+        st.info("This section requires data/delhincr.csv.")
     else:
-
-        # ----------------------------------------------------
-        # GET LATEST AVAILABLE RECORD
-        # ----------------------------------------------------
-
-        if "timestamp" in main_data.columns:
-
-            valid_data = main_data.dropna(
-                subset=["timestamp"]
-            )
-
-        else:
-
-            valid_data = main_data.copy()
-
+        valid_data = main_data.dropna(subset=["timestamp"]) if "timestamp" in main_data.columns else main_data.copy()
 
         if len(valid_data) == 0:
-
-            st.warning(
-                "No valid historical records were found."
-            )
-
+            st.warning("No valid historical records were found.")
         else:
-
             row = valid_data.iloc[-1]
 
-
-            # ------------------------------------------------
-            # READ IMPORTANT VARIABLES
-            # ------------------------------------------------
-
-            def get_value(column):
-
-                if column in row.index:
-
-                    try:
-                        return float(row[column])
-                    except Exception:
-                        return np.nan
-
+            def why_value(*columns):
+                for column in columns:
+                    if column in row.index:
+                        try:
+                            value = float(row[column])
+                            if np.isfinite(value):
+                                return value
+                        except Exception:
+                            pass
                 return np.nan
 
+            pm25_value = why_value("pm2_5_ugm3", "pm25", "pm2.5")
+            wind_value = why_value("wind_speed_10m_kmh", "wind_speed_kmh", "windspeed_kph")
+            boundary_value = why_value("boundary_layer_height_m", "pbl_height_m")
+            inversion_value = why_value("inversion_strength_c", "inversion_strength")
+            fire_value = why_value("upwind_stubble_fire_count")
+            humidity_value = why_value("relative_humidity_2m_pct", "relative_humidity", "humidity_pct", "humidity")
 
-            pm25_value = get_value(
-                "pm2_5_ugm3"
-            )
+            # Previous-hour PM2.5 change
+            pm25_change = np.nan
+            pm25_change_pct = np.nan
+            if "pm2_5_ugm3" in valid_data.columns and len(valid_data) >= 2:
+                try:
+                    previous = float(valid_data["pm2_5_ugm3"].iloc[-2])
+                    if np.isfinite(previous) and np.isfinite(pm25_value):
+                        pm25_change = pm25_value - previous
+                        if previous != 0:
+                            pm25_change_pct = (pm25_change / previous) * 100
+                except Exception:
+                    pass
 
-            wind_value = get_value(
-                "wind_speed_10m_kmh"
-            )
-
-            boundary_value = get_value(
-                "boundary_layer_height_m"
-            )
-
-            inversion_value = get_value(
-                "inversion_strength_c"
-            )
-
-            fire_value = get_value(
-                "upwind_stubble_fire_count"
-            )
-
-            humidity_value = get_value(
-                "relative_humidity"
-            )
-
-
-            # ------------------------------------------------
-            # CURRENT CONDITIONS
-            # ------------------------------------------------
-
+            # --------------------------------------------------------
+            # TITLE
+            # --------------------------------------------------------
             st.markdown(
-                "### 🌫️ Atmospheric Conditions"
-            )
-
-            c1, c2, c3 = st.columns(3)
-
-            with c1:
-
-                if not np.isnan(pm25_value):
-
-                    st.metric(
-                        "PM2.5",
-                        f"{pm25_value:.1f} µg/m³"
-                    )
-
-                else:
-
-                    st.metric(
-                        "PM2.5",
-                        "N/A"
-                    )
-
-
-            with c2:
-
-                if not np.isnan(wind_value):
-
-                    st.metric(
-                        "Wind Speed",
-                        f"{wind_value:.1f} km/h"
-                    )
-
-                else:
-
-                    st.metric(
-                        "Wind Speed",
-                        "N/A"
-                    )
-
-
-            with c3:
-
-                if not np.isnan(humidity_value):
-
-                    st.metric(
-                        "Relative Humidity",
-                        f"{humidity_value:.1f}%"
-                    )
-
-                else:
-
-                    st.metric(
-                        "Relative Humidity",
-                        "N/A"
-                    )
-
-
-            # ------------------------------------------------
-            # PHYSICAL EXPLANATION
-            # ------------------------------------------------
-
-            st.markdown(
-                "### 🔬 Pollution Formation & Accumulation"
-            )
-
-            st.markdown(
-                '<div class="explanation-box">',
-                unsafe_allow_html=True
-            )
-
-            f1, f2, f3 = st.columns(3)
-
-            with f1:
-
-                st.markdown(
-                    '<div class="flow-box">'
-                    '🔥 Pollution Sources'
-                    '<br><br>'
-                    'Vehicles • Industry • Biomass Burning'
-                    '</div>',
-                    unsafe_allow_html=True
-                )
-
-            with f2:
-
-                st.markdown(
-                    '<div class="flow-box">'
-                    '🌬️ Atmospheric Conditions'
-                    '<br><br>'
-                    'Wind • Humidity • PBL • Temperature'
-                    '</div>',
-                    unsafe_allow_html=True
-                )
-
-            with f3:
-
-                st.markdown(
-                    '<div class="flow-box">'
-                    '🌫️ Pollution Accumulation'
-                    '<br><br>'
-                    'PM2.5 increases → AQI increases'
-                    '</div>',
-                    unsafe_allow_html=True
-                )
-
-            st.markdown(
+                '<div class="why-hero">'
+                '<div class="why-hero-icon">💡</div>'
+                '<div>'
+                '<div class="why-hero-title">Why Is AQI High?</div>'
+                '<div class="why-hero-subtitle">'
+                'Evidence-based explanation using observed pollution, weather and atmospheric conditions.'
+                '</div>'
+                '</div>'
                 '</div>',
                 unsafe_allow_html=True
             )
 
+            # --------------------------------------------------------
+            # BUILD REALISTIC FACTOR CARDS
+            # --------------------------------------------------------
+            def level_pm25(v):
+                if np.isnan(v): return ("N/A", "No observation")
+                if v >= 250: return ("Very High", "Strong particulate pollution")
+                if v >= 150: return ("High", "Elevated particulate pollution")
+                if v >= 90: return ("Elevated", "Above a relatively clean level")
+                return ("Lower", "Particulate level is comparatively lower")
 
-            # ------------------------------------------------
-            # EXPLANATION RULES
-            # ------------------------------------------------
+            pm_level, pm_note = level_pm25(pm25_value)
 
-            st.markdown(
-                "### 🧠 Why Can Pollution Become High?"
-            )
+            if np.isnan(pm25_change):
+                trend_value, trend_badge, trend_note = "N/A", "Unavailable", "Previous-hour observation unavailable."
+            elif pm25_change > 10:
+                trend_value, trend_badge, trend_note = f"+{pm25_change:.1f} µg/m³", "Increasing", "PM2.5 is accumulating over the latest hour."
+            elif pm25_change < -10:
+                trend_value, trend_badge, trend_note = f"{pm25_change:.1f} µg/m³", "Falling", "The latest observation shows a reduction in PM2.5."
+            else:
+                trend_value, trend_badge, trend_note = f"{pm25_change:+.1f} µg/m³", "Stable", "The short-term PM2.5 change is relatively small."
 
+            if np.isnan(wind_value):
+                wind_value_text, wind_badge, wind_note = "N/A", "Unavailable", "Wind observation unavailable."
+            elif wind_value < 5:
+                wind_value_text, wind_badge, wind_note = f"{wind_value:.1f} km/h", "Low", "Weak winds limit horizontal dispersion."
+            elif wind_value < 10:
+                wind_value_text, wind_badge, wind_note = f"{wind_value:.1f} km/h", "Moderate", "Dispersion is possible but not especially strong."
+            else:
+                wind_value_text, wind_badge, wind_note = f"{wind_value:.1f} km/h", "Favorable", "Stronger winds generally support pollutant dispersion."
 
-            explanations = []
+            if np.isnan(boundary_value):
+                pbl_text, pbl_badge, pbl_note = "N/A", "Unavailable", "Boundary-layer observation unavailable."
+            elif boundary_value < 500:
+                pbl_text, pbl_badge, pbl_note = f"{boundary_value:.0f} m", "Shallow", "Less vertical volume is available to dilute surface pollution."
+            elif boundary_value < 1000:
+                pbl_text, pbl_badge, pbl_note = f"{boundary_value:.0f} m", "Moderate", "Mixing is present but can still limit dilution."
+            else:
+                pbl_text, pbl_badge, pbl_note = f"{boundary_value:.0f} m", "Deep", "A deeper layer generally supports greater dilution."
 
+            if np.isnan(humidity_value):
+                humidity_text, humidity_badge, humidity_note = "N/A", "Unavailable", "Humidity observation unavailable."
+            elif humidity_value >= 80:
+                humidity_text, humidity_badge, humidity_note = f"{humidity_value:.0f}%", "High", "Moist conditions can enhance particle growth and haze."
+            elif humidity_value >= 60:
+                humidity_text, humidity_badge, humidity_note = f"{humidity_value:.0f}%", "Moderate", "Humidity can influence particulate properties."
+            else:
+                humidity_text, humidity_badge, humidity_note = f"{humidity_value:.0f}%", "Lower", "Humidity is less supportive of particle growth."
 
-            if not np.isnan(wind_value):
+            if np.isnan(inversion_value):
+                inversion_text, inversion_badge, inversion_note = "N/A", "Unavailable", "No inversion-strength variable is available."
+            elif inversion_value > 2:
+                inversion_text, inversion_badge, inversion_note = "Likely", "Stable", "Stable air can suppress vertical mixing."
+            elif inversion_value > 0:
+                inversion_text, inversion_badge, inversion_note = "Possible", "Stable", "Some atmospheric stability may reduce mixing."
+            else:
+                inversion_text, inversion_badge, inversion_note = "Not indicated", "Mixed", "The available indicator does not show strong inversion."
 
-                if wind_value < 5:
+            if np.isnan(fire_value):
+                fire_text, fire_badge, fire_note = "N/A", "Unavailable", "No upwind fire indicator is available."
+            elif fire_value > 0:
+                fire_text, fire_badge, fire_note = f"{fire_value:.0f} event(s)", "Detected", "Regional biomass burning may contribute to particulate loading."
+            else:
+                fire_text, fire_badge, fire_note = "None", "Not detected", "This indicator does not identify upwind stubble burning."
 
-                    explanations.append(
-                        "🌬️ **Low wind speed:** "
-                        "weak winds reduce the dispersion of pollutants."
-                    )
-
-                elif wind_value < 10:
-
-                    explanations.append(
-                        "🌬️ **Moderate wind:** "
-                        "pollutant dispersion may still be limited."
-                    )
-
-                else:
-
-                    explanations.append(
-                        "🌬️ **Stronger wind:** "
-                        "generally helps disperse pollutants."
-                    )
-
-
-            if not np.isnan(boundary_value):
-
-                if boundary_value < 500:
-
-                    explanations.append(
-                        "⬇️ **Low planetary boundary layer height:** "
-                        "pollutants are trapped closer to the surface."
-                    )
-
-                else:
-
-                    explanations.append(
-                        "⬆️ **Higher planetary boundary layer:** "
-                        "provides more atmospheric volume for dispersion."
-                    )
-
-
-            if not np.isnan(inversion_value):
-
-                if inversion_value > 2:
-
-                    explanations.append(
-                        "🌡️ **Atmospheric inversion:** "
-                        "stable air can suppress vertical mixing."
-                    )
-
-                else:
-
-                    explanations.append(
-                        "🌡️ **Weak inversion:** "
-                        "there is less evidence of strong temperature inversion."
-                    )
-
-
-            if not np.isnan(fire_value):
-
-                if fire_value > 0:
-
-                    explanations.append(
-                        "🔥 **Upwind stubble-fire activity detected:** "
-                        "regional biomass burning can contribute to pollution."
-                    )
-
-                else:
-
-                    explanations.append(
-                        "🔥 **No detected upwind stubble-fire activity "
-                        "in the available record.**"
-                    )
-
-
-            if not np.isnan(humidity_value):
-
-                if humidity_value > 80:
-
-                    explanations.append(
-                        "💧 **High humidity:** "
-                        "humid conditions can contribute to particulate growth "
-                        "and haze."
-                    )
-
-
-            if len(explanations) == 0:
-
-                st.info(
-                    "Not enough atmospheric variables are available "
-                    "to generate a detailed explanation."
+            def factor_card(icon, title, value, badge, note, css_class):
+                return (
+                    f'<div class="factor-card {css_class}">'
+                    f'<div class="factor-icon">{icon}</div>'
+                    f'<div class="factor-content">'
+                    f'<div class="factor-title">{title}</div>'
+                    f'<div class="factor-value-row"><span class="factor-value">{value}</span><span class="factor-badge">{badge}</span></div>'
+                    f'<div class="factor-note">{note}</div>'
+                    f'</div></div>'
                 )
 
+            # --------------------------------------------------------
+            # MAIN TWO-COLUMN LAYOUT
+            # --------------------------------------------------------
+            left, right = st.columns([1.65, 0.95], gap="large")
+
+            with left:
+                st.markdown('<div class="why-section-heading">Key Factors Contributing to High AQI</div>', unsafe_allow_html=True)
+
+                st.markdown(
+                    factor_card("☀️", "Current PM2.5 Level", f"{pm25_value:.0f} µg/m³" if not np.isnan(pm25_value) else "N/A", pm_level, pm_note, "factor-pm") +
+                    factor_card("↗", "PM2.5 Trend (vs. previous hour)", trend_value, trend_badge, trend_note, "factor-trend") +
+                    factor_card("≋", "Wind Speed", wind_value_text, wind_badge, wind_note, "factor-wind") +
+                    factor_card("▱", "Planetary Boundary Layer (PBL)", pbl_text, pbl_badge, pbl_note, "factor-pbl") +
+                    factor_card("♨", "Humidity", humidity_text, humidity_badge, humidity_note, "factor-humidity") +
+                    factor_card("♨", "Atmospheric Stability", inversion_text, inversion_badge, inversion_note, "factor-inversion") +
+                    factor_card("🍃", "Upwind Stubble-Fire Indicator", fire_text, fire_badge, fire_note, "factor-fire"),
+                    unsafe_allow_html=True
+                )
+
+            with right:
+                st.markdown(
+                    '<div class="assessment-card">'
+                    '<div class="assessment-title"><span class="assessment-icon">▥</span> Overall Assessment</div>'
+                    '<div class="assessment-text">'
+                    'The high-AQI condition is primarily associated with elevated PM2.5. '
+                    'When PM2.5 is rising at the same time that wind is weak or the mixing layer is shallow, '
+                    'pollutants can remain concentrated near the surface. Atmospheric stability and high humidity '
+                    'can further support persistence of particulate pollution. Regional burning indicators, when detected, '
+                    'may add to the particulate load.'
+                    '</div>'
+                    '<div class="short-box">'
+                    '<div class="short-title">🎯 In Short</div>'
+                    '<div class="short-text">It is not one factor. The observed pollution level and atmospheric conditions work together to determine how long pollution remains concentrated.</div>'
+                    '</div>'
+                    '<div class="important-box">'
+                    '<div class="important-title">ⓘ Important Note</div>'
+                    '<div class="important-text">This is an evidence-based interpretation of the available observations. It does not prove that traffic, industry or biomass burning alone caused the measured PM2.5.</div>'
+                    '</div>'
+                    '</div>',
+                    unsafe_allow_html=True
+                )
+
+            # --------------------------------------------------------
+            # DATA-DRIVEN CONCLUSION
+            # --------------------------------------------------------
+            reasons = []
+            if not np.isnan(pm25_value) and pm25_value >= 150:
+                reasons.append(f"PM2.5 is elevated at {pm25_value:.1f} µg/m³")
+            if not np.isnan(pm25_change) and pm25_change > 10:
+                reasons.append("PM2.5 is increasing")
+            if not np.isnan(wind_value) and wind_value < 10:
+                reasons.append("wind-driven dispersion is limited")
+            if not np.isnan(boundary_value) and boundary_value < 1000:
+                reasons.append("the mixing layer is relatively shallow")
+            if not np.isnan(inversion_value) and inversion_value > 2:
+                reasons.append("stable/inversion conditions are present")
+
+            st.markdown('<div class="conclusion-box">', unsafe_allow_html=True)
+            st.markdown('<div class="conclusion-title">🔎 What our system concludes</div>', unsafe_allow_html=True)
+            if reasons:
+                st.markdown(
+                    '<div class="conclusion-text">The current high-AQI episode is consistent with ' +
+                    '; '.join(reasons) +
+                    '. Together, these conditions favor pollutant accumulation and persistence near the surface.</div>',
+                    unsafe_allow_html=True
+                )
             else:
+                st.markdown(
+                    '<div class="conclusion-text">The available observations are not sufficient to confidently identify the dominant reason for the high-AQI condition.</div>',
+                    unsafe_allow_html=True
+                )
+            st.markdown('</div>', unsafe_allow_html=True)
 
-                for reason in explanations:
-
-                    st.warning(
-                        reason
-                    )
+            st.caption(
+                "Interpretation note: the dashboard uses observed data and atmospheric indicators to explain likely dispersion and accumulation conditions; it does not establish direct causation for unmeasured emission sources."
+            )
 
 
 # ============================================================
